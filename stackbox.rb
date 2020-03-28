@@ -9,6 +9,9 @@ class Stackbox < Formula
   depends_on "python"
 
   def install
-    system "sh stack_box.sh"
+    system "mkdir -p /usr/local/Cellar/stackbox/1.0.0"
+    system "cp -a . /usr/local/Cellar/stackbox/1.0.0/"
+    system "mkdir /usr/local/Cellar/stackbox/1.0.0/bin"
+    system "mv /usr/local/Cellar/stackbox/1.0.0/stack_box.sh /usr/local/Cellar/stackbox/1.0.0/bin/stackbox.sh"
   end
 end
