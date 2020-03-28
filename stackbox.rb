@@ -7,11 +7,12 @@ class Stackbox < Formula
   depends_on "docker"
   depends_on "docker-compose"
   depends_on "python"
+  depends_on "shc"
 
   def install
-    system "mkdir -p /usr/local/Cellar/stackbox/1.0.0"
+    system "mkdir -p /usr/local/Cellar/stackbox/1.0.0/bin"
     system "cp -a . /usr/local/Cellar/stackbox/1.0.0/"
-    system "mkdir /usr/local/Cellar/stackbox/1.0.0/bin"
-    system "mv /usr/local/Cellar/stackbox/1.0.0/stack_box.sh /usr/local/Cellar/stackbox/1.0.0/bin/stackbox.sh"
+    system "shc -f stack_box.sh -o stackbox"
+    system "cp ./stackbox /usr/local/Cellar/stackbox/1.0.0/bin/"
   end
 end
